@@ -1,12 +1,5 @@
-/**
- * 
- */
 package com.ds.ll;
 
-/**
- * @author Sanjeev
- *
- */
 public class LinkedListImpl<T> implements ILinkedList<T> {
 
 	private Node<T> head;
@@ -46,7 +39,6 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 			while (tmpNode.getNext() != null) {
 				tmpNode = tmpNode.getNext();
 			}
-
 			tmpNode.setNext(newNode);
 		}
 		listSize++;
@@ -54,31 +46,26 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 
 	@Override
 	public void insertAtPosition(int pos, T item) {
-		if (pos > listSize + 1 || pos < 1) {
+		if (pos > listSize+1 || pos < 1) {
 			System.out.println("Could not remove node. Invalid position in linkedlist");
 			return;
 		}
-
 		if (pos == 1) {
 			this.insertAtFirst(item);
 			return;
 		}
-
 		if (pos == listSize + 1) {
 			this.insertAtLast(item);
 			return;
 		}
-
 		Node<T> newNode = new Node<>(item);
 		Node<T> tmpNode = head;
 		for (int i = 1; i < pos - 1; i++) {
 			tmpNode = tmpNode.getNext();
 		}
-
 		newNode.setNext(tmpNode.getNext());
 		tmpNode.setNext(newNode);
 		listSize++;
-
 	}
 
 	@Override
@@ -86,7 +73,6 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 		if (head == null) {
 			return false;
 		}
-
 		Node<T> tmpNode = head;
 		this.head = tmpNode.getNext();
 		tmpNode = null;
@@ -114,7 +100,6 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 			System.out.println("Could not remove node. Invalid position in linkedlist");
 			return false;
 		}
-
 		if (pos == 1) {
 			return this.removeAtFirst();
 		}
@@ -127,7 +112,6 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 		for (int i = 1; i < pos - 1; i++) {
 			tmpNode = tmpNode.getNext();
 		}
-
 		Node<T> nodeTodelete = tmpNode.getNext();
 		tmpNode.setNext(nodeTodelete.getNext());
 		nodeTodelete = null;
@@ -136,7 +120,6 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 	}
 
 	@Override
-
 	public void displayListItems() {
 		Node<T> tmpNode = this.head;
 		while (tmpNode != null) {
@@ -144,7 +127,6 @@ public class LinkedListImpl<T> implements ILinkedList<T> {
 			tmpNode = tmpNode.getNext();
 		}
 		System.out.print(" null \n");
-
 	}
 
 }

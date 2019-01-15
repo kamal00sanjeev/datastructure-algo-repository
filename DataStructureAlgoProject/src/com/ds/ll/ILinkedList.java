@@ -1,12 +1,5 @@
-/**
- * 
- */
 package com.ds.ll;
 
-/**
- * @author Sanjeev
- *
- */
 public interface ILinkedList<T> {
 
 	public boolean isEmpty();
@@ -22,7 +15,7 @@ public interface ILinkedList<T> {
 	public boolean removeAtLast();
 
 	public boolean removeAtPosition(int pos);
-
+	
 	public void displayListItems();
 
 }
